@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CmsShoppingCart.Models.ViewModels.Shop.ProductVM>
+
+@{
+    ViewBag.Title = ViewBag.CategoryName;
+}
+
+    <h2 style="color:blue; font-size: 30px; font-weight:bold;">@ViewBag.CategoryName</h2>
+
+<p style="color:blue; font-size: 20px;">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th id="thick" style="color:blue; font-size: 20px; font-weight:bold;">
+            Name
+        </th>
+       
+        <th id="thick" style="color:blue; font-size: 20px; font-weight:bold;">
+            Description
+        </th>
+        <th id="thick" style="color:blue; font-size: 20px; font-weight:bold;">
+            Price
+        </th>
+        
+        <th id="thick" style="color:blue; font-size: 20px; font-weight:bold;">
+            Image
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="color:blue; font-size: 20px; font-weight:bold;">
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+       
+        <td style="color:blue; font-size: 20px; font-weight:bold;">
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td style="color:blue; font-size: 20px; font-weight:bold;">
+           (R)@Html.DisplayFor(modelItem => item.Price)
+        </td>
+      
+        <td>
+            <a href="/shop/product-details/@item.Slug">
+                <img src="/Images/Uploads/Products/@item.Id/Thumbs/@item.ImageName" />
+            </a>
+        </td>
+
+        <td style="color:blue; font-size: 20px; font-weight:bold;">
+            <a style="color:blue; font-size: 20px;" href="/Shop/Product-Details/@item.Slug">Details</a>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<CmsShoppingCart.Models.ViewModels.Shop.CategoryVM>
+
+<h3 style="color:blue; font-size: 20px;">Our List Of Products.</h3>
+
+<ul>
+
+    @foreach (var item in Model)
+    {
+
+            <li style="color:blue; font-size: 20px; font-weight:bold;"><a href="/shop/Category/@item.Slug.ToLower()">@item.Name</a></li>
+      
+     }
+
+</ul>
+

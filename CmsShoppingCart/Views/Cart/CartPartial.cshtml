@@ -1,0 +1,11 @@
+﻿@model CmsShoppingCart.Models.ViewModels.Cart.CartVM
+
+<div class="ajaxcart glyphicon glyphicon-shopping-cart" style="color:blue; font-size: 20px;">
+
+        YourCart:@Model.Quantity item(s) - (R)@Model.Price 
+        <br />
+        @Html.ActionLink("Checkout", "Index")
+</div>
+
+
+<link href="~/Content/Site.css" rel="stylesheet" />

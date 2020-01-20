@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CmsShoppingCart.Models.ViewModels.Account.OrdersForUserVM>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2 style="color:blue; font-size: 30px;">Orders</h2>
+
+@if (!Model.Any())
+{
+    <h3 style="color:blue; font-size: 20px;" class="text-center">You have no orders.</h3>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th style="color:blue; font-size: 20px;">
+                Order Number
+            </th>
+            <th style="color:blue; font-size: 20px;">Order Details</th>
+
+            <th style="color:blue; font-size: 20px;">
+                Created At
+            </th>
+
+            <th style="color:blue; font-size: 20px;">
+                Total
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="color:blue; font-size: 20px;">
+                    @Html.DisplayFor(modelItem => item.OrderNumber)
+                </td>
+                <td style="color:blue; font-size: 20px;">
+                    @foreach (var item2 in item.ProductsAndQty)
+                    {
+                        @item2.Key @:x @item2.Value <br />
+                    }
+                </td>
+                <td style="color:blue; font-size: 20px;">
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td style="color:blue; font-size: 20px;">
+                    (R)@Html.DisplayFor(modelItem => item.Total)
+                </td>
+            </tr>
+        }
+
+    </table>
+}

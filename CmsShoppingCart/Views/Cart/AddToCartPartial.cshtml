@@ -1,0 +1,5 @@
+﻿@model CmsShoppingCart.Models.ViewModels.Cart.CartVM
+
+ YourCart: @Model.Quantity,item(s) - (R)@Model.Price
+ <br />
+ @Html.ActionLink("Checkout", "Index")
